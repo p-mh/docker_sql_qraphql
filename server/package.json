@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.0",
+    "pg": "^7.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "scripts": {
+    "dbStart": "docker rm -f gamedb; docker container run --name gamedb -v gamedb:/var/lib/postgresql/data  -p 5432:5432 -e POSTGRES_USER=user -e POSTGRES_PASSWORD=userpwd   -d postgres:11.2-alpine",
+    "start:dev": "yarn dbStart && nodemon index.js"
+  }
+}
